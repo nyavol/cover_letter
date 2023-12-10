@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    container_name: cover_letter
+    image: cover_letter_generator:v1.0
+    environment:
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
+    ports:
+      - "9001:9001"
+    env_file:
+      - .env
+#      - TRITON_MODEL_STORE=/path_to_model
+#    volumes:
+#      - ./path_to_model:/path_to_model
+#    devices:
+#      - /dev/nvidia1
+#      - /dev/nvidia-uvm
+#      - /dev/nvidia-uvm-tools
+#      - /dev/nvidiactl
+#    expose:
+#      - "9000" #for synchronous requests (simple Rest)
+#      - "9001" #for asynchronous requests (through gRPC)
+#    command: ["tritonserver", "--model-repository=/models/bert_model", "--backend-config=python,/opt/bert_script.py"]
+
